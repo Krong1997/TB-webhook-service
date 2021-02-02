@@ -10,3 +10,4 @@ services:
         dockerfile: ./docker/Dockerfile
     ports:
         - "31000:3000"
+        - "31001:3001"
