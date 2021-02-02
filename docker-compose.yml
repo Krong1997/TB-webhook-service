@@ -1,0 +1,12 @@
+
+version: "3.8"
+services:
+  rpc-webhook:
+    restart: always
+    image: rpc-webhook
+    container_name: rpc-webhook
+    build:
+        context: ./
+        dockerfile: ./docker/Dockerfile
+    ports:
+        - "31000:3000"
