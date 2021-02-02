@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 
-const router = require('./service');
+const router = require('./router');
 
 const app = express();
 
