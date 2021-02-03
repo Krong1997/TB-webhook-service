@@ -9,7 +9,7 @@ function handleTBdata(params) {
     devicename: params.headers.devicename,
     devicetype: params.headers.devicetype,
     requestid: params.headers.requestid,
-    data: params.headers.data
+    data: JSON.parse(params.headers.data)
   }
 }
 
@@ -27,7 +27,7 @@ router.post('/test', async (req, res) => {
     return res.status(200).json(response);
   } catch (error) {
     console.log(error);
-    return res.status(500).json();
+    return res.status(500).json({ status: 500, error });
   }
 });
 
