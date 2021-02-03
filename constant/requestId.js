@@ -1,12 +1,11 @@
 'use strict';
-const {
+import {
   reboot,
   gpio
-} = require('./requestCallback');
+} from './requestCallback';
 
-const requestIdMapping = {
+export const requestIdMapping = {
   "0": reboot,
   "1": gpio
 }
 
-module.exports = requestIdMapping;

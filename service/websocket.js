@@ -1,7 +1,7 @@
 'use strict';
-const WebSocket = require('ws');
+import WebSocket from 'ws';
 
-function websocketBroadcast(server) {
+export default function websocketBroadcast(server) {
   const wss = new WebSocket.Server(server);
   wss.on('connection', function connection(ws) {
     ws.send('connection success');
@@ -33,5 +33,3 @@ function websocketBroadcast(server) {
     });
   }
 }
-
-module.exports = websocketBroadcast;

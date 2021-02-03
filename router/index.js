@@ -1,7 +1,9 @@
 'use strict';
-const router = require('express').Router();
-const handdleRequest = require('../modules/handleRequest');
-const websocketBroadcast = require('../service/websocket');
+import { Router } from 'express';
+import handdleRequest from '../modules/handleRequest';
+import websocketBroadcast from '../service/websocket';
+
+const router = Router();
 const broadcaster = websocketBroadcast({ port: 3001 });
 
 function handleTBdata(params) {
@@ -31,4 +33,4 @@ router.post('/test', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
