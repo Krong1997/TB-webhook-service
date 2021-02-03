@@ -16,11 +16,20 @@ function websocketBroadcast(server) {
   })
 
   return (data) => {
+    const _data = JSON.stringify({
+      ts: Date.now(),
+      ...data
+    });
+
     wss.clients.forEach(client => {
-      client.send(JSON.stringify({
-        ts: Date.now(),
-        data: data
-      }));
+      client.send(_data, (err) => {
+        if(err) {
+          console.log('websocket broadcast error: ', err);
+        }
+        else {
+          console.log('send data success: ', _data);
+        }
+      });
     });
   }
 }
