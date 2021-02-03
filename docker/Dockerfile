@@ -1,9 +1,11 @@
 FROM node
 
-WORKDIR /usr/share
+WORKDIR /service
 
-COPY ./ /usr/share/
+COPY ./dist /service/
 
-RUN npm install
+COPY ./docker /service/
 
-CMD "./docker/start-service.sh"
+# RUN npm install
+
+CMD "./start-service.sh"
